@@ -31,8 +31,20 @@ foreach ($request_json['events'] as $event)
 
                 $obj = json_decode($result);
 
-                $reply_message = $result;
-                $reply_message = 'ติดเชื้อสะสม '. $obj->{'Confirmed'};
+                // $reply_message = $result;
+
+                $reply_message = 'รายงานยอดติดเชื้อสะสม Covid-19 ในประเทศไทย \r\n';
+                $reply_message = 'Update ล่าสุดเมื่อ : '.$obj->{'UpdateDate'} .'\r\n';
+                $reply_message = 'ติดเชื้อสะสม : '.$obj->{'Confirmed'} .' ราย \r\n';
+                $reply_message = 'ติดเชื้อเพิ่มขึ้น : '.$obj->{'NewConfirmed'} .' ราย \r\n';
+                $reply_message = 'เสียชีวิตสะสม : '. $obj->{'Deaths'} .' ราย \r\n';
+                $reply_message = 'เสียชีวิตเพิ่มขึ้น : '. $obj->{'NewDeaths'} .' ราย \r\n';
+                $reply_message = 'รักษาตัวในรพ.ตอนนี้ : '.$obj->{'Confirmed'} .' ราย \r\n';
+                $reply_message = 'รักษาตัวในรพ.เพิ่มขึ้น : '.$obj->{'NewHospitalized'} .' ราย \r\n';
+                $reply_message = 'หายแล้วตอนนี้ : '.$obj->{'Confirmed'} .' ราย \r\n';
+                $reply_message = 'หายแล้วเพิ่มขึ้น : '.$obj->{'Confirmed'} .' ราย \r\n';
+
+                // $reply_message = 'ติดเชื้อสะสม '. $obj->{'Confirmed'};
             }
 			
 			if($text == "@covid"){
