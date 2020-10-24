@@ -18,11 +18,12 @@ foreach ($request_json['events'] as $event)
 			
 			$txts = explode(" ", $text);
 			
-			if($text == "@bot ไล่มงคลออก !!"){
-					$reply_message = "ไม่สามารถดำเนินการได้ในขณะนี้";
-				}
-			
-			if($txts[0] == "@บอท"){
+			if($text == "@covid"){
+                $api_url = 'https://covid19.th-stat.com/api/open/today';
+                $jsondatas = file_get_contents($api_url);
+                
+                $reply_message = json_decode($jsondatas);
+            } else if($txts[0] == "@บอท"){
 				
 				$reply_message = "กรุณาใช้รูปแบบคำสั่งที่ถูกต้องงงงง!!\n";
 				
